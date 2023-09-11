@@ -1,0 +1,38 @@
+.header {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    max-height: 180px;
+    padding: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background: linear-gradient(#28272C 25%, #2C2B31 75%, #3A3841 40%);
+}
+
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: yellow;
+}
+
+.content div {
+    width: 10%;
+}
+
+.logo {
+    height: 10%;
+    width: 10%;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-top: -1.2rem;
+}
