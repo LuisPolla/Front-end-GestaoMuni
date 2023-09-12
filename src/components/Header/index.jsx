@@ -19,21 +19,7 @@ export function Header({ title, navbar }) {
                     </ul>
                 </navbar>
             )}
-            <div>
-                <Tabs
-                    defaultActiveKey={"login"}
-                    transition={true}
-                    className='w-50 mt-5'
-                    variant="pills"
-                >
-                    <Tab eventKey={"login"} title="Entrar">
-                        <p>Form entrar</p>
-                    </Tab>
-                    <Tab eventKey={"register"} title="Cadastrar">
-                        <p>Form Cadastrar</p>
-                    </Tab>
-                </Tabs>
-            </div>
+            
         </header>
     );
 }
