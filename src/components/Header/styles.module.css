@@ -15,7 +15,9 @@
 }
 
 .content h1 {
-    font-size: 3rem;
+    font-size: 5rem;
+    margin-top: -3rem;
+    font-family: impact;
     text-align: center;
     color: yellow;
 }
@@ -33,6 +35,11 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 1.5rem;
-    margin-top: -1.2rem;
+    font-size: 1.8rem;
+    margin-top: -4.5rem;
+}
+
+.userImg{
+    padding-top: -10rem;
+    margin-left: 90%;
 }

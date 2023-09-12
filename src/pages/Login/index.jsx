@@ -9,7 +9,7 @@ export function Login() {
 
   const handleLoginClick = () => {
     // Redireciona para a rota desejada ao clicar no botão Login
-    navigate('/gestao'); // Substitua '/gestao' pela rota que deseja redirecionar
+    navigate('/home'); // Substitua '/gestao' pela rota que deseja redirecionar
   };
 
   const handleRegisterClick = () => {
