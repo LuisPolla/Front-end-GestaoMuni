@@ -1,0 +1,60 @@
+/* Estilo para a página Home */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.button {
+  display: flex;
+  background-color: rgba(36, 35, 40, 0.6);
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-size: 29px;
+  width: 369px;
+  height: 179px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  background-color: hsba(252, 12%, 16%, 0.6);
+  border: 2px solid #ffffff;
+}
+
+/* Estilo responsivo para dispositivos móveis */
+@media (max-width: 768px) {
+  .home-container {
+    height: auto;
+    padding: 2rem;
+  }
+
+}
+
+.fundoCentral{
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+  background-image: url(../../image/fundo.svg);
+}

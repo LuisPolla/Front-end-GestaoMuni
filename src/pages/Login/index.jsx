@@ -76,7 +76,7 @@ export function Login() {
               />
             </div>
             <div className={styles.inputs}>
-            <div className={styles.titleInput}>insira seu CPF</div>
+            <div className={styles.titleInput}>insira seu CPF ex: (000.000.000-00)</div>
 
               <input
                 type="text"
@@ -93,6 +93,17 @@ export function Login() {
                 type="date"
                 id="Nascimento"
                 name="Nascimento"
+                className="form-control dark-input"
+              />
+            </div>
+            <div className={styles.inputs}>
+            <div className={styles.titleInput}>Insira um E-mail válido</div>
+
+              <input
+                type="email"
+                id="email"
+                name="senha"
+                placeholder="Email"
                 className="form-control dark-input"
               />
             </div>
