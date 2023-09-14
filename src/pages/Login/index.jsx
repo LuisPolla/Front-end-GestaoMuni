@@ -19,110 +19,112 @@ export function Login() {
 
   return (
     <div>
+      <div className={styles.fundo}>
       <Header title="Arsenal de Munições" />
-      <div className={styles.login}>
-        <Tabs
-          defaultActiveKey={"login"}
-          transition={true}
-          className={styles.loginTabs}
-          variant="pills"
-          id="login-tabs"
-        >
-          <Tab eventKey={"login"} title="Entrar">
-            <div className={styles.inputs}>
-              <div className={styles.titleInput}>insira seu E-mail</div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Seu email"
-                className="form-control dark-input"
-              />
-            </div>
-            <div className={styles.inputs}>
-            <div className={styles.titleInput}>insira sua Senha</div>
-              <input
-                type="password"
-                id="senha"
-                name="senha"
-                placeholder="Sua senha"
-                className="form-control dark-input"
-              />
-            </div>
-            <Button variant="primary" className={styles.buttonRegister} block onClick={handleLoginClick}>
-              Entrar
-            </Button>
-          </Tab>
-          <Tab eventKey={"register"} title="Cadastrar">
-            <div className={styles.inputs}>
-            <div className={styles.titleInput}>insira seu Nome Completo</div>
-              <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Nome Completo"
-                className="form-control dark-input"
-              />
-            </div>
-            <div className={styles.inputs}>
-            <div className={styles.titleInput}>insira seu Registro Militar</div>
+        <div className={styles.content}>
+          <Tabs
+            defaultActiveKey={"login"}
+            transition={true}
+            className={styles.loginTabs}
+            variant="pills"
+            id="login-tabs"
+          >
+            <Tab eventKey={"login"} title="Entrar" className={styles.customTab}>
+              <div className={styles.inputs}>
+                <div className={styles.titleInput}>insira seu E-mail</div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Seu email"
+                  className="form-control dark-input"
+                />
+              </div>
+              <div className={styles.inputs}>
+              <div className={styles.titleInput}>insira sua Senha</div>
+                <input
+                  type="password"
+                  id="senha"
+                  name="senha"
+                  placeholder="Sua senha"
+                  className="form-control dark-input"
+                />
+              </div>
+              <Button variant="primary" className={styles.buttonRegister} block onClick={handleLoginClick}>
+                Entrar
+              </Button>
+            </Tab>
+            <Tab eventKey={"register"} title="Cadastrar" className={styles.customTab} >
+              <div className={styles.inputs}>
+              <div className={styles.titleInput}>insira seu Nome Completo</div>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Nome Completo"
+                  className="form-control dark-input"
+                />
+              </div>
+              <div className={styles.inputs}>
+              <div className={styles.titleInput}>insira seu Registro Militar</div>
 
-              <input
-                type="text"
-                id="cpf"
-                name="cpf"
-                placeholder="Registro Militar"
-                className="form-control dark-input"
-              />
-            </div>
-            <div className={styles.inputs}>
-            <div className={styles.titleInput}>insira seu CPF ex: (000.000.000-00)</div>
+                <input
+                  type="text"
+                  id="cpf"
+                  name="cpf"
+                  placeholder="Registro Militar"
+                  className="form-control dark-input"
+                />
+              </div>
+              <div className={styles.inputs}>
+              <div className={styles.titleInput}>insira seu CPF ex: (000.000.000-00)</div>
 
-              <input
-                type="text"
-                id="cpf"
-                name="cpf"
-                placeholder="CPF"
-                className="form-control dark-input"
-              />
-            </div>
-            <div className={styles.date}>
-            <div className={styles.titleInput}>insira sua Data de Nascimento</div>
+                <input
+                  type="text"
+                  id="cpf"
+                  name="cpf"
+                  placeholder="CPF"
+                  className="form-control dark-input"
+                />
+              </div>
+              <div className={styles.date}>
+              <div className={styles.titleInput}>insira sua Data de Nascimento</div>
 
-              <input
-                type="date"
-                id="Nascimento"
-                name="Nascimento"
-                className="form-control dark-input"
-              />
-            </div>
-            <div className={styles.inputs}>
-            <div className={styles.titleInput}>Insira um E-mail válido</div>
+                <input
+                  type="date"
+                  id="Nascimento"
+                  name="Nascimento"
+                  className="form-control dark-input"
+                />
+              </div>
+              <div className={styles.inputs}>
+              <div className={styles.titleInput}>Insira um E-mail válido</div>
 
-              <input
-                type="email"
-                id="email"
-                name="senha"
-                placeholder="Email"
-                className="form-control dark-input"
-              />
-            </div>
-            <div className={styles.inputs}>
-            <div className={styles.titleInput}>Crie Uma Senha (Mínimo 6 Caracteres)</div>
+                <input
+                  type="email"
+                  id="email"
+                  name="senha"
+                  placeholder="Email"
+                  className="form-control dark-input"
+                />
+              </div>
+              <div className={styles.inputs}>
+              <div className={styles.titleInput}>Crie Uma Senha (Mínimo 6 Caracteres)</div>
 
-              <input
-                type="password"
-                id="senha"
-                name="senha"
-                placeholder="Senha"
-                className="form-control dark-input"
-              />
-            </div>
-            <Button variant="success" className={styles.buttonRegister} block onClick={handleRegisterClick}>
-              Cadastrar
-            </Button>
-          </Tab>
-        </Tabs>
+                <input
+                  type="password"
+                  id="senha"
+                  name="senha"
+                  placeholder="Senha"
+                  className="form-control dark-input"
+                />
+              </div>
+              <Button variant="success" className={styles.buttonRegister} block onClick={handleRegisterClick}>
+                Cadastrar
+              </Button>
+            </Tab>
+          </Tabs>
+        </div>
       </div>
     </div>
   );

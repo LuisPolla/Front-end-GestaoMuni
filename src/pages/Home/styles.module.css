@@ -27,9 +27,9 @@ h1 {
   color: #fff;
   margin-left: 2rem;
   margin-top: 1rem;
-  font-size: 29px;
-  width: 369px;
-  height: 179px;
+  font-size: 2vw;
+  width: 20vw;
+  height: 10vw;
   border: none;
   border-radius: 40px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
@@ -53,7 +53,7 @@ button:hover {
 }
 
 .fundoCentral{
-  width: 100%;
+  width: 97vw;
   height: auto;
   border-radius: 40px;
   background-image: url(../../image/fundo.svg);

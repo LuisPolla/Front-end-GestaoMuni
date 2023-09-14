@@ -1,48 +1,73 @@
-/* styles.module.css */
-.login {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    margin-left: 20rem;
-    margin-right: 20rem;
-    align-items: center;
-    justify-content: center;
-    background-color: #28272C;
-    border-radius: 3rem;
-    padding: 2rem;
-  }
-  
-  .loginTabs {
-    margin-left: 95px;
-    width: 100%;
-    max-width: 400px;
-    top: 0;
-    background-color: #28272C;
-    z-index: 1;
-    font-size: 20px;
-    padding: 20px 30px;
-  }
-  
-  .titleInput{
-    font-size: 15px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.256);
+  background-image: url('../../image/fundoLogin.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-  .inputs {
-    width: 200%;
-    margin-top: 1rem;
-    margin-left: -90px;
-    padding: 5px; /* Adicione espaçamento interno */
-  }
-  
-  .date {
-    width: 200%;
-    margin-top: 1rem;
-    margin-left: -90px;
-    padding: 0.2rem; /* Adicione espaçamento interno */
-  }
-  
-  .buttonRegister {
-    margin-left: -84px;
-    margin-top: 2rem;
-  }
-  
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3rem;
+  padding: 2rem;
+  background-image: url('../../image/fundo.svg'); /* Imagem de fundo específica para o content */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.loginTabs {
+  margin-left: 95px;
+  width: 100%;
+  max-width: 400px;
+  top: 0;
+  z-index: 1;
+  font-size: 20px;
+  padding: 20px 30px;
+  transition: box-shadow 0.3s ease; 
+}
+
+.loginTabs .nav-item {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.loginTabs .nav-item:hover {
+  background-color: transparent;
+  z-index: 1;
+}   
+
+.titleInput {
+  font-size: 15px;
+}
+
+.inputs {
+  width: 200%;
+  margin-top: 0.5rem;
+  margin-left: -90px;
+  padding: 5px;
+}
+
+.date {
+  width: 200%;
+  margin-top: 1rem;
+  margin-left: -90px;
+  padding: 0.2rem;
+}
+
+.buttonRegister {
+  margin-left: -84px;
+  margin-top: 2rem;
+}
