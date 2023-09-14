@@ -41,11 +41,10 @@ export function Home() {
                             <button className={styles.button} onClick={handlePerfilClick}>Meu Perfil
                             <img src="/perfilIcon.svg" />
                             </button>
-                        
+                          </div>
+                        </div>
                     </div>
-                </div>
-                </div>
-            </div>
-        </div> 
+              </div>
+      </div> 
         )
 }

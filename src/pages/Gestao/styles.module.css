@@ -1,20 +1,21 @@
-.content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 22vh;
-    text-align: center;
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20vh;
+  text-align: center;
 }
 
 .fundoCentral{
-    width: 97vw;
-    height: auto;
-    border-radius: 40px;
-    background-image: url(../../image/fundo.svg);
-  }
+  width: 97vw;
+  height: auto;
+  border-radius: 40px;
+  background-image: url(../../image/fundo.svg);
+}
 
-.container{
-    display: flex;
-    justify-content: space-between;
-    
+.Tabela{
+  display: flex;
+  justify-content: center;
+  margin-left: 300vh;
+
 }
