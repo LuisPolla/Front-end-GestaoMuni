@@ -21,7 +21,7 @@ h1 {
 .button {
   display: flex;
   background-color: rgba(36, 35, 40, 0.6);
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -52,7 +52,7 @@ button:hover {
 
 }
 
-.fundoCentral{
+.fundoCentral {
   width: 97vw;
   height: auto;
   border-radius: 40px;

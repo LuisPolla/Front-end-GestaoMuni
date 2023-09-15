@@ -20,7 +20,7 @@ export function Login() {
   return (
     <div>
       <div className={styles.fundo}>
-      <Header title="Arsenal de Munições" />
+        <Header title="Arsenal de Munições" />
         <div className={styles.content}>
           <Tabs
             defaultActiveKey={"login"}
@@ -41,7 +41,7 @@ export function Login() {
                 />
               </div>
               <div className={styles.inputs}>
-              <div className={styles.titleInput}>insira sua Senha</div>
+                <div className={styles.titleInput}>insira sua Senha</div>
                 <input
                   type="password"
                   id="senha"
@@ -56,7 +56,7 @@ export function Login() {
             </Tab>
             <Tab eventKey={"register"} title="Cadastrar" className={styles.customTab} >
               <div className={styles.inputs}>
-              <div className={styles.titleInput}>insira seu Nome Completo</div>
+                <div className={styles.titleInput}>insira seu Nome Completo</div>
                 <input
                   type="text"
                   id="nome"
@@ -66,7 +66,7 @@ export function Login() {
                 />
               </div>
               <div className={styles.inputs}>
-              <div className={styles.titleInput}>insira seu Registro Militar</div>
+                <div className={styles.titleInput}>insira seu Registro Militar</div>
 
                 <input
                   type="text"
@@ -77,7 +77,7 @@ export function Login() {
                 />
               </div>
               <div className={styles.inputs}>
-              <div className={styles.titleInput}>insira seu CPF ex: (000.000.000-00)</div>
+                <div className={styles.titleInput}>insira seu CPF ex: (000.000.000-00)</div>
 
                 <input
                   type="text"
@@ -88,7 +88,7 @@ export function Login() {
                 />
               </div>
               <div className={styles.date}>
-              <div className={styles.titleInput}>insira sua Data de Nascimento</div>
+                <div className={styles.titleInput}>insira sua Data de Nascimento</div>
 
                 <input
                   type="date"
@@ -98,7 +98,7 @@ export function Login() {
                 />
               </div>
               <div className={styles.inputs}>
-              <div className={styles.titleInput}>Insira um E-mail válido</div>
+                <div className={styles.titleInput}>Insira um E-mail válido</div>
 
                 <input
                   type="email"
@@ -109,7 +109,7 @@ export function Login() {
                 />
               </div>
               <div className={styles.inputs}>
-              <div className={styles.titleInput}>Crie Uma Senha (Mínimo 6 Caracteres)</div>
+                <div className={styles.titleInput}>Crie Uma Senha (Mínimo 6 Caracteres)</div>
 
                 <input
                   type="password"

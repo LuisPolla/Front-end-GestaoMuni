@@ -1,3 +1,7 @@
+/* styles.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
 .header {
     margin-right: 2rem;
     margin-left: 2rem;
@@ -6,7 +10,7 @@
     padding: 1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    background: linear-gradient(#28272C 25%, #2C2B31 75%, #3A3841 40%);
+    background: linear-gradient(#39383e 25%, #2C2B31 75%, #3A3841 40%);
 }
 
 .content {
@@ -16,9 +20,10 @@
 }
 
 .content h1 {
-    font-size: 5rem;
-    margin-top: -3rem;
-    font-family: impact;
+    display: flex;
+    font-size: 7rem;
+    justify-content: center;
+    font-family: 'Allerta Stencil', sans-serif; /* Aplicando a fonte aqui */
     text-align: center;
     color: yellow;
 }
@@ -28,9 +33,9 @@
 }
 
 .logo {
-    margin-left: -8rem;
-    height: 12%;
-    width: 12%;
+    margin-left: -2rem;
+    height: 10%;
+    width: 10%;
 }
 
 .navbar ul {
@@ -38,31 +43,30 @@
     justify-content: space-evenly;
     align-items: center;
     font-size: 1.5vw;
-    margin-top: -2.2vw;
+    margin-top: -0.3vw;
 }
 
-.userImg{
+.userImg {
     padding-top: -10rem;
     margin-left: 90%;
 }
 
 .li {
-    display: inline-block; /* Certifique-se de que os elementos 'li' sejam exibidos em linha */
-    position: relative; /* Posição relativa para criar pseudo-elemento absoluto */
-  }
-  
-  .li::after {
-    content: ''; /* Crie um pseudo-elemento para o sublinhado */
+    display: inline-block;
+    position: relative;
+}
+
+.li::after {
+    content: '';
     position: absolute;
-    bottom: -1px; /* Posicione o sublinhado na parte inferior do 'li' */
+    bottom: -1px;
     left: 0;
     width: 100%;
-    height: 4px; /* Altura do sublinhado */
-    background-color: transparent; /* Cor inicial do sublinhado */
-    transition: background-color 0.3s ease; /* Adicione uma transição de cor */
-  }
-  
-  .li:hover::after {
-    background-color: #ffffff; /* Cor do sublinhado ao passar o mouse */
-  }
-  
+    height: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.li:hover::after {
+    background-color: #ffffff;
+}

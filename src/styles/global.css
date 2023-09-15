@@ -28,3 +28,13 @@ a {
 .nav-pills {
     --bs-nav-pills-link-active-bg: #35009F;
 }
+
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
