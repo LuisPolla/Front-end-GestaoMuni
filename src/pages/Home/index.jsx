@@ -43,6 +43,11 @@ export function Home() {
                 <img src="/perfilIcon.svg" />
               </button>
             </div>
+            <div className={styles.containerDashBoard}>
+              <div className={styles.cardDashBoard}>
+                
+              </div>
+            </div>
           </div>
         </div>
       </div>
