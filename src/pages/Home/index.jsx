@@ -1,3 +1,5 @@
+import axios from axios;
+import { useEffect, useState } from "react";
 import { Header } from "../../components";
 import { useNavigate } from 'react-router-dom'; // Importe useNavigate
 
@@ -42,11 +44,6 @@ export function Home() {
               <button className={styles.button} onClick={handlePerfilClick}>Meu Perfil
                 <img src="/perfilIcon.svg" />
               </button>
-            </div>
-            <div className={styles.containerDashBoard}>
-              <div className={styles.cardDashBoard}>
-                
-              </div>
             </div>
           </div>
         </div>

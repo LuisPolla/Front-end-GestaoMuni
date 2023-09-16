@@ -72,18 +72,18 @@ export function Login() {
                   type="text"
                   id="cpf"
                   name="cpf"
-                  placeholder="Registro Militar"
+                  placeholder="00000000"
                   className="form-control dark-input"
                 />
               </div>
               <div className={styles.inputs}>
-                <div className={styles.titleInput}>insira seu CPF ex: (000.000.000-00)</div>
+                <div className={styles.titleInput}>insira seu CPF</div>
 
                 <input
                   type="text"
                   id="cpf"
                   name="cpf"
-                  placeholder="CPF"
+                  placeholder="000.000.000-00"
                   className="form-control dark-input"
                 />
               </div>
@@ -104,7 +104,7 @@ export function Login() {
                   type="email"
                   id="email"
                   name="senha"
-                  placeholder="Email"
+                  placeholder="email@gmail.com"
                   className="form-control dark-input"
                 />
               </div>
