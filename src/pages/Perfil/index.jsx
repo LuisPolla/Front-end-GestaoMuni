@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import { Header } from "../../components";
 import styles from './styles.module.css'
-import { Table, Button, Dropdown, DropdownButton, Pagination } from 'react-bootstrap';
+import { AuthContext } from '../../contexts/AuthContext';
+
 export function Perfil() {
+    const { user } = useContext(AuthContext);
+
     return (
         <div>
             <Header title="Arsenal de Munições" navbar={true} />
@@ -9,7 +13,8 @@ export function Perfil() {
                 <div className={styles.fundoCentral}>
                     <div className='flex'>
                         <img src="/bonequinho.svg" className={styles.fotoPerfil} />
-                        <h1 className={styles.nomePerfil}>Gerson Nascimento
+                        <h1 className={styles.nomePerfil}>
+                            {user.nome}
                         </h1>
                         <div className={styles.FundoTabela}>
                             <div className={styles.table}>
@@ -20,9 +25,6 @@ export function Perfil() {
                                         </h1>
                                         <h1>
                                             Email
-                                        </h1>
-                                        <h1>
-                                            Senha
                                         </h1>
                                         <h1>
                                             CPF
@@ -39,29 +41,26 @@ export function Perfil() {
                                     <div className={styles.tableInfos}>
 
                                         <h1>
-                                            Gerson Alburque
+                                            {user.nome}
                                         </h1>
                                         <h1>
-                                            Gerson@gmail.com
+                                            {user.email}
                                         </h1>
                                         <h1>
-                                            *******
+                                            {user.cpf}
                                         </h1>
                                         <h1>
-                                            123456789-09
+                                            {user.registroMilitar}
                                         </h1>
                                         <h1>
-                                            12345678
-                                        </h1>
-                                        <h1>
-                                            19/03/2070
+                                            {user.dataNascimento}
                                         </h1>
                                     </div>
                                     <div>
                                     </div>
                                 </div>
                             </div>
-                                <button onClick={() => setObuttonen()} className={styles.button}> Editar Perfil</button>
+                            {/* <button onClick={() => setObuttonen()} className={styles.button}> Editar Perfil</button> */}
                         </div>
                     </div>
                 </div>

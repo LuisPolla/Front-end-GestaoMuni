@@ -1,7 +1,13 @@
+import { AuthContextProvider } from './contexts/AuthContext';
+import { MunicaoContextProvider } from './contexts/MunicaoContext';
 import { Routes } from "./routes";
 
 export function App() {
     return (
-        <Routes />
+        <AuthContextProvider>
+            <MunicaoContextProvider>
+                <Routes />
+            </MunicaoContextProvider>
+        </AuthContextProvider>
     );
 }
