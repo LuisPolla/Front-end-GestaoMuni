@@ -6,6 +6,13 @@ import { AuthContext } from '../../contexts/AuthContext';
 export function Perfil() {
     const { user } = useContext(AuthContext);
 
+    // Verifica se o usuário não é nulo antes de acessar suas propriedades
+    const nomeUsuario = user ? user.nome : 'Usuário não encontrado';
+    const emailUsuario = user ? user.email : 'Email não encontrado';
+    const cpfUsuario = user ? user.cpf : 'CPF não encontrado';
+    const registroMilitarUsuario = user ? user.registroMilitar : 'Registro Militar não encontrado';
+    const dataNascimentoUsuario = user ? user.dataNascimento : 'Data de Nascimento não encontrada';
+
     return (
         <div>
             <Header title="Arsenal de Munições" navbar={true} />
@@ -14,7 +21,7 @@ export function Perfil() {
                     <div className='flex'>
                         <img src="/bonequinho.svg" className={styles.fotoPerfil} />
                         <h1 className={styles.nomePerfil}>
-                            {user.nome}
+                            {nomeUsuario}
                         </h1>
                         <div className={styles.FundoTabela}>
                             <div className={styles.table}>
@@ -35,25 +42,23 @@ export function Perfil() {
                                         <h1>
                                             Data de nascimento
                                         </h1>
-
                                     </div>
 
                                     <div className={styles.tableInfos}>
-
                                         <h1>
-                                            {user.nome}
+                                            {nomeUsuario}
                                         </h1>
                                         <h1>
-                                            {user.email}
+                                            {emailUsuario}
                                         </h1>
                                         <h1>
-                                            {user.cpf}
+                                            {cpfUsuario}
                                         </h1>
                                         <h1>
-                                            {user.registroMilitar}
+                                            {registroMilitarUsuario}
                                         </h1>
                                         <h1>
-                                            {user.dataNascimento}
+                                            {dataNascimentoUsuario}
                                         </h1>
                                     </div>
                                 </div>

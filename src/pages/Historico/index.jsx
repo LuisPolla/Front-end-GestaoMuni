@@ -1,11 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react'; // Importe useState
 import { Header } from '../../components';
 import styles from './styles.module.css';
-import { Table } from 'react-bootstrap';
+import { Table, Spinner } from 'react-bootstrap'; // Importe Spinner
 import { HistoricoContext } from '../../contexts/HistoricoContext';
 
 export function Historico() {
-  const { getAllHistorico, historicoData } = useContext(HistoricoContext);
+  const { getAllHistorico, historicoData, loading } = useContext(HistoricoContext);
+  
 
   useEffect(() => {
     getAllHistorico();
@@ -26,9 +27,8 @@ export function Historico() {
                 <thead>
                   <tr>
                     <th>id</th>
-                    <th>Modelo</th>
-                    <th>Calibre</th>
-                    <th>Usuario</th>
+                    <th>Id do Usuario</th>
+                    <th>Id da Munição </th>
                     <th>Data de Cadastro</th>
                   </tr>
                 </thead>
@@ -36,10 +36,9 @@ export function Historico() {
                   {historicoData.map((item) => (
                     <tr key={item.id}>
                       <td>{item.id}</td>
-                      <td>{item.modelo}</td>
-                      <td>{item.calibre} mm</td>
-                      <td>{item.usuario}</td>
-                      <td>{item.dataCadastro}</td>
+                      <td>{item.userId}</td>
+                      <td>{item.municaoId}</td>
+                      <td>{item.dataCriacao}</td>
                     </tr>
                   ))}
                   <tr>
