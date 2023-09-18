@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes as Router, Route, Navigate } from 'react-router-dom';
 import { Login, Gestao, Home, Historico, Perfil } from './pages';
+import { MunicaoContextProvider } from './contexts/MunicaoContext'; // Importe o contexto MunicaoContextProvider
+import { HistoricoContextProvider } from './contexts/HistoricoContext'; // Importe o contexto HistoricoContextProvider
 
 const isAuthenticated = () => {
     const accessToken = localStorage.getItem('accessToken');
@@ -24,7 +26,9 @@ export function Routes() {
                 <Route path={'/'} element={<Login navigateTo={navigateTo} />} />
                 <Route path={'/gestao'} element={
                     <PrivateRoute>
-                        <Gestao />
+                        <MunicaoContextProvider> 
+                            <Gestao />
+                        </MunicaoContextProvider>
                     </PrivateRoute>
                 } />
                 <Route path={'/home'} element={
@@ -39,7 +43,9 @@ export function Routes() {
                 } />
                 <Route path={'/historico'} element={
                     <PrivateRoute>
-                        <Historico />
+                        <HistoricoContextProvider> {/* Adicione o HistoricoContextProvider */}
+                            <Historico />
+                        </HistoricoContextProvider>
                     </PrivateRoute>
                 } />
             </Router>

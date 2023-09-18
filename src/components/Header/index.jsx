@@ -1,12 +1,11 @@
 import styles from './styles.module.css';
-export function Header({ title, navbar }) {
 
+export function Header({ title, navbar }) {
     return (
         <header className={styles.header}>
             <div className={styles.content}>
-                <img className={styles.logo} src="/logo.svg" />
+            <img className={styles.logo} src="/logo.svg" alt="Logo" />
                 <h1>{title.toUpperCase()}</h1>
-                <div></div>
             </div>
             {navbar && (
                 <navbar className={styles.navbar}>

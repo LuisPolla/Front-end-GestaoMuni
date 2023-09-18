@@ -13,7 +13,6 @@
   width: 97%;
   height: 690px;
   margin: 1rem;
-  /* Adicione margem para espaçamento */
   border-radius: 40px;
   background-image: url(../../image/fundo.svg);
   background-size: cover;
@@ -32,12 +31,10 @@
 
 .titulosTabela th {
   font-size: 1.5rem;
-  /* Ajuste o tamanho da fonte dos títulos da tabela */
 }
 
 .bodyTebela td {
   font-size: 1.2rem;
-  /* Ajuste o tamanho da fonte do corpo da tabela */
 }
 
 .titleInput {
@@ -54,8 +51,6 @@
 tr {
   font-size: 30px;
 }
-
-Table {}
 
 .buttonCadastrar {
   font-size: 45px;

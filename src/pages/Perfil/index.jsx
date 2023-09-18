@@ -56,11 +56,8 @@ export function Perfil() {
                                             {user.dataNascimento}
                                         </h1>
                                     </div>
-                                    <div>
-                                    </div>
                                 </div>
                             </div>
-                            {/* <button onClick={() => setObuttonen()} className={styles.button}> Editar Perfil</button> */}
                         </div>
                     </div>
                 </div>

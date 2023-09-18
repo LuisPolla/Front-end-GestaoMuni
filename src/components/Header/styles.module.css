@@ -1,62 +1,69 @@
-/* styles.module.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
 
 .header {
-    margin-right: 2rem;
     margin-left: 2rem;
     width: 96vw;
     height: 257px;
-    padding: 1rem;
+
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     background: linear-gradient(#39383e 25%, #2C2B31 75%, #3A3841 40%);
+    display: flex;
+    flex-direction: column;
+    /* Disposição vertical para os elementos internos */
+    justify-content: flex-end;
+    /* Alinhamento ao fundo verticalmente */
+    align-items: center;
+    position: relative;
 }
 
 .content {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
-}
-
-.content h1 {
-    display: flex;
-    font-size: 7rem;
-    justify-content: center;
-    font-family: 'Allerta Stencil', sans-serif; /* Aplicando a fonte aqui */
-    text-align: center;
-    color: yellow;
-}
-
-.content div {
-    width: 10%;
-}
-
-.logo {
-    margin-left: -2rem;
-    height: 10%;
-    width: 10%;
-}
-
-.navbar ul {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 1.5vw;
-    margin-top: -1.3vw;
-}
-
-.userImg {
-    padding-top: -10rem;
-    margin-left: 90%;
-}
-
-.li {
-    display: inline-block;
     position: relative;
 }
 
-.li::after {
+.content h1 {
+    font-size: 7vw;
+    font-family: 'Allerta Stencil', sans-serif;
+    text-align: center;
+    color: yellow;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.logo {
+    height: 10vw;
+    width: 10vw;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: -50vh;
+    
+}
+
+.navbar li {
+    position: relative;
+    margin-left: 40vh;
+    align-items: center;
+}
+
+.navbar li::after {
     content: '';
     position: absolute;
     bottom: -1px;
@@ -67,6 +74,13 @@
     transition: background-color 0.3s ease;
 }
 
-.li:hover::after {
+.navbar li:hover::after {
     background-color: #ffffff;
+}
+
+/* Adicione regras de mídia para ajustar o tamanho da fonte em telas menores */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 5vw;
+    }
 }

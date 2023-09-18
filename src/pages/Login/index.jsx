@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Header } from "../../components";
 import { Tab, Tabs, Button, Spinner, Alert } from 'react-bootstrap';
 import styles from './styles.module.css';
-import { useNavigate } from 'react-router-dom'; // Importe useNavigate
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from 'react-hook-form';
 

@@ -19,7 +19,7 @@ export function MunicaoContextProvider({ children }) {
         empresaFabricante
     }) {
         try {
-            setLoading(true)
+            setLoading(true);
             const accessToken = localStorage.getItem('accessToken');
             await api.post('/municao', {
                 modelo,
@@ -61,13 +61,49 @@ export function MunicaoContextProvider({ children }) {
         }
     }
 
+    async function updateMunicao(id, data) {
+        try {
+            setLoading(true);
+            const accessToken = localStorage.getItem('accessToken');
+            await api.put(`/municao/${id}`, data, {
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(accessToken)}`
+                }
+            });
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    async function deleteMunicao(municaoId) {
+        try {
+          setLoading(true);
+          const accessToken = localStorage.getItem('accessToken');
+          await api.delete(`/municao/${municaoId}`, {
+            headers: {
+              Authorization: `Bearer ${JSON.parse(accessToken)}`
+            }
+          });
+          await getAllMunicao();
+        } catch (error) {
+          console.error("Erro ao excluir a munição:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+
     return (
         <MunicaoContext.Provider
             value={{
                 municoes,
                 loading,
+                setMunicoes,
                 getAllMunicao,
-                createMunicao
+                createMunicao,
+                updateMunicao,
+                deleteMunicao,
             }}
         >
             {children}
