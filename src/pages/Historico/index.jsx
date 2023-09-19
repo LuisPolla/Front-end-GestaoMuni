@@ -1,16 +1,21 @@
-import { useContext, useEffect, useState } from 'react'; // Importe useState
+import { useContext, useEffect, useState } from 'react';
 import { Header } from '../../components';
 import styles from './styles.module.css';
-import { Table, Spinner } from 'react-bootstrap'; // Importe Spinner
+import { Table, Spinner } from 'react-bootstrap';
 import { HistoricoContext } from '../../contexts/HistoricoContext';
+import { format } from 'date-fns'; // Importe a função format de date-fns
 
 export function Historico() {
   const { getAllHistorico, historicoData, loading } = useContext(HistoricoContext);
-  
 
   useEffect(() => {
     getAllHistorico();
   }, [getAllHistorico]);
+
+  const formatDataCriacao = (data) => {
+    const formattedDate = format(new Date(data), 'dd-MM-yyyy');
+    return formattedDate.replace(/-/g, '/');
+  };
 
   return (
     <div>
@@ -26,28 +31,19 @@ export function Historico() {
               <Table striped hover>
                 <thead>
                   <tr>
-                    <th>id</th>
                     <th>Id do Usuario</th>
-                    <th>Id da Munição </th>
+                    <th>Id da Munição</th>
                     <th>Data de Cadastro</th>
                   </tr>
                 </thead>
                 <tbody>
                   {historicoData.map((item) => (
                     <tr key={item.id}>
-                      <td>{item.id}</td>
                       <td>{item.userId}</td>
                       <td>{item.municaoId}</td>
-                      <td>{item.dataCriacao}</td>
+                      <td>{formatDataCriacao(item.dataCriacao)}</td>
                     </tr>
                   ))}
-                  <tr>
-                    <td className={styles.buttonCadastrar}></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
                 </tbody>
               </Table>
             </div>

@@ -4,9 +4,10 @@ import styles from './styles.module.css';
 import { Table, Button, Dropdown, DropdownButton, Spinner, Modal } from 'react-bootstrap';
 import { MunicaoContext } from "../../contexts/MunicaoContext";
 import { useForm } from "react-hook-form";
+import { format } from 'date-fns';
 
 export function Gestao() {
-    const { getAllMunicao, loading, municoes, createMunicao, updateMunicao, deleteMunicao } = useContext(MunicaoContext);
+    const { getAllMunicao, loading, municoes, createMunicao, updateMunicao, deleteMunicao, setMunicoes } = useContext(MunicaoContext);
     const [isCreated, setIsCreated] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedMunicao, setSelectedMunicao] = useState(null);
@@ -67,13 +68,13 @@ export function Gestao() {
     const handleDeleteMunicao = (municaoId) => {
         try {
             if (window.confirm("Tem certeza de que deseja apagar esta munição?")) {
-              deleteMunicao(municaoId);
+                deleteMunicao(municaoId);
             }
-            
+
         } catch (error) {
             console.error(erorr, `Erro ao deletar a Munição`)
         }
-      };
+    };
 
     useEffect(() => {
         async function getMunicoes() {
@@ -333,12 +334,16 @@ export function Gestao() {
                                     id="dataFabricacao"
                                     name="dataFabricacao"
                                     placeholder="Data de Fabricação"
-                                    defaultValue={selectedMunicao.dataFabriacao}
+                                    defaultValue={
+                                        selectedMunicao.dataFabriacao
+                                            ? format(new Date(selectedMunicao.dataFabriacao), 'yyyy-MM-dd')
+                                            : ''
+                                    }
                                     {...register('dataFabricacao', {
                                         required: {
                                             value: true,
-                                            message: 'Data de Fabricação é obrigatória'
-                                        }
+                                            message: 'Data de Fabricação é obrigatória',
+                                        },
                                     })}
                                 />
                                 {errors.dataFabricacao && <span style={{ color: 'red' }}>{errors.dataFabricacao.message}</span>}
@@ -447,7 +452,7 @@ export function Gestao() {
                                 />
                                 {errors.empresaFabricante && <span style={{ color: 'red' }}>{errors.empresaFabricante.message}</span>}
                             </div>
-                                
+
 
 
                         </Modal.Body>
@@ -482,7 +487,7 @@ export function Gestao() {
                                                 <th>id</th>
                                                 <th>Modelo</th>
                                                 <th>Calibre</th>
-                                                <th>Condição</th>
+                                                <th>Estado</th>
                                                 <th>Ações</th>
                                             </tr>
                                         </thead>
