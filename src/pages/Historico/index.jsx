@@ -3,7 +3,7 @@ import { Header } from '../../components';
 import styles from './styles.module.css';
 import { Table, Spinner } from 'react-bootstrap';
 import { HistoricoContext } from '../../contexts/HistoricoContext';
-import { format } from 'date-fns'; // Importe a função format de date-fns
+import { format } from 'date-fns'; 
 
 export function Historico() {
   const { getAllHistorico, historicoData, loading } = useContext(HistoricoContext);

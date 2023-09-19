@@ -5,14 +5,20 @@ import { Table, Button, Dropdown, DropdownButton, Spinner, Modal } from 'react-b
 import { MunicaoContext } from "../../contexts/MunicaoContext";
 import { useForm } from "react-hook-form";
 import { format } from 'date-fns';
+import MunicaoDetailsModal from '../../components/ver mais/MunicaoDetailsModal';
 
 export function Gestao() {
     const { getAllMunicao, loading, municoes, createMunicao, updateMunicao, deleteMunicao, setMunicoes } = useContext(MunicaoContext);
     const [isCreated, setIsCreated] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedMunicao, setSelectedMunicao] = useState(null);
-
+    const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+    const handleDetailsClick = (municao) => {
+        setSelectedMunicao(municao);
+        setIsDetailsModalOpen(true);
+    };
 
     async function addMunicao(data) {
         await createMunicao({
@@ -63,7 +69,7 @@ export function Gestao() {
         setSelectedMunicao(municaoParaEditar);
         setIsEditModalOpen(true);
         reset();
-    }
+    };
 
     const handleDeleteMunicao = (municaoId) => {
         try {
@@ -501,10 +507,12 @@ export function Gestao() {
                                                         <td>{item.estadoConservacao}</td>
                                                         <td>
                                                             <DropdownButton id={`dropdown-${item.id}`} title="Opções">
-                                                                <Dropdown.Item href="/">Ver mais</Dropdown.Item>
+                                                                <Dropdown.Item onClick={() => handleDetailsClick(item)}>Ver mais</Dropdown.Item>
+                                                                <MunicaoDetailsModal municao={selectedMunicao} onClose={() => setIsDetailsModalOpen(false)} />
                                                                 <Dropdown.Item onClick={() => handleEditClick(item.id)}>Editar Munição</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => handleDeleteMunicao(item.id)}>Apagar Munição</Dropdown.Item>
                                                             </DropdownButton>
+
                                                         </td>
                                                     </tr>
                                                 )
@@ -519,6 +527,7 @@ export function Gestao() {
                                             </tr>
                                         </tbody>
                                     </Table>
+
                                     {/* <div className={styles.paginaBotao}>
                                         <Pagination>
                                             <Pagination.First />
