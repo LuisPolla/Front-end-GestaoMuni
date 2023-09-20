@@ -65,7 +65,7 @@ export function MunicaoContextProvider({ children }) {
         try {
             setLoading(true);
             const accessToken = localStorage.getItem('accessToken');
-            await api.put(`/municao/${id}`, data, {
+            await api.put(`/municao/update/${id}`, data, {
                 headers: {
                     Authorization: `Bearer ${JSON.parse(accessToken)}`
                 }

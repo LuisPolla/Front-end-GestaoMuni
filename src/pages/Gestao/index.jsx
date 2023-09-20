@@ -11,11 +11,13 @@ export function Gestao() {
     const { getAllMunicao, loading, municoes, createMunicao, updateMunicao, deleteMunicao, setMunicoes } = useContext(MunicaoContext);
     const [isCreated, setIsCreated] = useState(false);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [selectedMunicao, setSelectedMunicao] = useState(null);
+    const [selectedMunicao, setSelectedMunicao] = useState(false);
+    const [bool, setBool] = useState(false);
     const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const handleDetailsClick = (municao) => {
+        setBool(true);
         setSelectedMunicao(municao);
         setIsDetailsModalOpen(true);
     };
@@ -36,8 +38,9 @@ export function Gestao() {
     }
 
     async function editMunicao(data) {
+        console.log("selectedMunicao", selectedMunicao)
         if (selectedMunicao) {
-            await updateMunicao(selectedMunicao.id, data);
+            const result = await updateMunicao(selectedMunicao.id, data);
             const updatedMunicoes = municoes.map((municao) => {
                 if (municao.id === selectedMunicao.id) {
                     // Atualize apenas a munição que foi editada
@@ -463,8 +466,8 @@ export function Gestao() {
 
                         </Modal.Body>
                         <Modal.Footer>
-                            <Button variant="secondary" onClick={() => handleEditModalClose()}>Fechar</Button>
-                            <Button variant="primary" type="submit" onClick={() => handleEditModalClose()}>
+                            <Button variant="secondary" onClick={() => setIsEditModalOpen(false)}>Fechar</Button>
+                            <Button variant="primary" type="submit">
                                 Salvar Edições
                             </Button>
                         </Modal.Footer>
@@ -508,7 +511,7 @@ export function Gestao() {
                                                         <td>
                                                             <DropdownButton id={`dropdown-${item.id}`} title="Opções">
                                                                 <Dropdown.Item onClick={() => handleDetailsClick(item)}>Ver mais</Dropdown.Item>
-                                                                <MunicaoDetailsModal municao={selectedMunicao} onClose={() => setIsDetailsModalOpen(false)} />
+                                                                <MunicaoDetailsModal bool={bool} setBool={setBool} municao={selectedMunicao} />
                                                                 <Dropdown.Item onClick={() => handleEditClick(item.id)}>Editar Munição</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => handleDeleteMunicao(item.id)}>Apagar Munição</Dropdown.Item>
                                                             </DropdownButton>

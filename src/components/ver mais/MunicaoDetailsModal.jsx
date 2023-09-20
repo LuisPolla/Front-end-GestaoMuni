@@ -3,9 +3,12 @@ import { Modal, Button } from 'react-bootstrap';
 import styles from './styles.module.css';
 import { format } from 'date-fns'; // Importe a função format
 
-function MunicaoDetailsModal({ municao, onClose }) {
+function MunicaoDetailsModal({ bool, setBool, municao }) {
+  function fecharModal() {
+    setBool(false)
+  }
   return (
-    <Modal show={!!municao} onHide={onClose} className={styles.modal}>
+    <Modal show={bool} onHide={() => fecharModal()} className={styles.modal}>
       <Modal.Header closeButton>
         <Modal.Title>Detalhes da Munição</Modal.Title>
       </Modal.Header>
@@ -26,7 +29,7 @@ function MunicaoDetailsModal({ municao, onClose }) {
         )}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={() => fecharModal()}>
           Fechar
         </Button>
       </Modal.Footer>
