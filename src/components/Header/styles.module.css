@@ -4,15 +4,12 @@
     margin-left: 2rem;
     width: 96vw;
     height: 257px;
-
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     background: linear-gradient(#39383e 25%, #2C2B31 75%, #3A3841 40%);
     display: flex;
     flex-direction: column;
-    /* Disposição vertical para os elementos internos */
     justify-content: flex-end;
-    /* Alinhamento ao fundo verticalmente */
     align-items: center;
     position: relative;
 }

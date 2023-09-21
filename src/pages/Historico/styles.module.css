@@ -55,3 +55,8 @@ Table {}
     justify-content: center;
     align-items: center;
 }
+
+.ordernarPorData{
+    padding-left: 80vh;
+    padding-top: 7vh;
+}

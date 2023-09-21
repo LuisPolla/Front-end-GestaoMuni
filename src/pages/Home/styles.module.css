@@ -53,8 +53,37 @@ button:hover {
 }
 
 .fundoCentral {
+  display: flex;
   width: 97vw;
+  gap: 20px;
+  padding: 16px;
   height: auto;
   border-radius: 40px;
   background-image: url(../../image/fundo.svg);
+}
+
+.containerDashboard{
+  display: flex;
+  padding-left: 30vh;
+  padding-top: 10vh;
+  gap: 5rem;
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.retanguloDashboard1{
+  background-color: rgb(85, 85, 88);
+  color: #F8E414;
+  font-size: 55px;
+  width: 25vw;
+  height: 15vw;
+  border-radius: 5%;
+}
+.retanguloDashboard2{
+  background-color: rgb(85, 85, 88);
+  color: #1DDD8D;
+  font-size: 55px;
+  width: 25vw;
+  height: 15vw;
+  border-radius: 5%;
 }

@@ -15,13 +15,13 @@ function MunicaoDetailsModal({ bool, setBool, municao }) {
       <Modal.Body>
         {municao && (
           <div>
-            <p>ID: {municao.id}</p>
+            <p>id: {municao.id}</p>
             <p>Modelo: {municao.modelo}</p>
-            <p>Calibragem: {municao.calibragem} mm</p>
-            <p>Data de Fabricação: {municao.dataFabriacao ? format(new Date(municao.dataFabriacao), 'dd/MM/yyyy') : ''}</p> {/* Formate a dataFabriacao aqui */}
-            <p>Estado de Conservação: {municao.estadoConservacao}</p>
+            <p>Calibre: {municao.calibragem} mm</p>
+            <p>Data de Fabricação: {municao.dataFabriacao ? format(new Date(municao.dataFabriacao), 'dd/MM/yyyy') : ''}</p> 
+            <p>Estado de Conservação da caixas: {municao.estadoConservacao}</p>
             <p>Quantidade de caixas em estoque: {municao.quatidadeEmEstoque}</p>
-            <p>TipoPonta: {municao.tipoPonta}</p>
+            <p>Tipo de Ponta: {municao.tipoPonta}</p>
             <p>Material da munição: {municao.material}</p>
             <p>Peso em gramas: {municao.peso} g</p>
             <p>Empresa Fabricante: {municao.empresaFabricante}</p>

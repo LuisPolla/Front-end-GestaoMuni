@@ -496,7 +496,7 @@ export function Gestao() {
                                                 <th>id</th>
                                                 <th>Modelo</th>
                                                 <th>Calibre</th>
-                                                <th>Estado</th>
+                                                <th>Conservação</th>
                                                 <th>Ações</th>
                                             </tr>
                                         </thead>
