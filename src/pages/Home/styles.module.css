@@ -64,26 +64,47 @@ button:hover {
 
 .containerDashboard{
   display: flex;
-  padding-left: 30vh;
-  padding-top: 10vh;
-  gap: 5rem;
+  flex-direction: column;
+  padding-left: 88vh;
+  padding-top: 2vh;
   text-align: center;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .retanguloDashboard1{
   background-color: rgb(85, 85, 88);
   color: #F8E414;
-  font-size: 55px;
+  font-size: 25px;
   width: 25vw;
   height: 15vw;
   border-radius: 5%;
+  
 }
+.retanguloDashboarvalor{
+  font-size: 80px;
+}
+
 .retanguloDashboard2{
   background-color: rgb(85, 85, 88);
   color: #1DDD8D;
-  font-size: 55px;
+  margin-top: 7vh;
+  font-size: 25px;
   width: 25vw;
   height: 15vw;
   border-radius: 5%;
+  
+}
+
+.retanguloDashboard3{
+  background-color: rgb(85, 85, 88);
+  color: #16BFD6;
+  margin-top: 7vh;
+  font-size: 25px;
+  width: 25vw;
+  height: 15vw;
+  border-radius: 5%;
+  margin-left: -55vh;
+  margin-top: -68.4vh;
+  
+
 }

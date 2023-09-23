@@ -13,9 +13,9 @@ export function Gestao() {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [selectedMunicao, setSelectedMunicao] = useState(null);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const [searchTerm, setSearchTerm] = useState(""); 
-    const [filterType, setFilterType] = useState("all"); 
-    const [dateFilter, setDateFilter] = useState("all"); 
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filterType, setFilterType] = useState("all");
+    const [dateFilter, setDateFilter] = useState("all");
 
     const [currentPage, setCurrentPage] = useState(1);
     const columnsPerPage = 5;
@@ -23,7 +23,7 @@ export function Gestao() {
     const startIndex = (currentPage - 1) * columnsPerPage;
     const endIndex = startIndex + columnsPerPage;
 
-    const currentDate = new Date(); // Adicione esta linha para obter a data atual
+    const currentDate = new Date();
 
     // Função para calcular as datas recentes e antigas
     function filterMunicoesByDate(municoes, dateFilter, currentDate) {
@@ -119,21 +119,21 @@ export function Gestao() {
     // Função para lidar com a alteração no campo de pesquisa
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
-        setCurrentPage(1); // Reinicie a página para a primeira quando uma nova pesquisa for realizada
+        setCurrentPage(1);
     };
 
     // Função para lidar com a seleção de filtro
     const handleFilterSelect = (filter) => {
         setFilterType(filter);
-        setCurrentPage(1); // Reinicie a página quando um novo filtro for selecionado
-        getAllMunicao(); // Atualize os dados com o novo filtro
+        setCurrentPage(1);
+        getAllMunicao();
     };
 
     // Função para lidar com a seleção de filtro de data
     const handleDateFilterSelect = (filter) => {
         setDateFilter(filter);
-        setCurrentPage(1); // Reinicie a página quando um novo filtro de data for selecionado
-        getAllMunicao(); // Atualize os dados com o novo filtro
+        setCurrentPage(1);
+        getAllMunicao();
     };
 
     useEffect(() => {
@@ -151,32 +151,34 @@ export function Gestao() {
                     <div className='flex'>
                         <img src="/TituloGestao.svg" className={styles.icon} alt="Título" />
                         <h1 className={styles.titulo}>Gestão de Munição</h1>
-                        <div className={styles.searchContainer}>
-                            <InputGroup>
-                                <FormControl
-                                    type="text"
-                                    placeholder="Pesquisar por modelo..."
-                                    value={searchTerm}
-                                    onChange={handleSearchChange}
-                                />
-                                <Button variant="outline-secondary" onClick={() => setSearchTerm("")}>
-                                    Limpar
-                                </Button>
-                            </InputGroup>
-                        </div>
-                        <div className={styles.filterContainer}>
-                            <DropdownButton id="filter-dropdown" title={`Filtrar: ${filterType === "all" ? "Todas" : filterType}`} variant="secondary">
-                                <Dropdown.Item onClick={() => handleFilterSelect("all")}>Qualquer um</Dropdown.Item>
-                                <Dropdown.Item onClick={() => handleFilterSelect("aberto")}>Caixa de munição abertas</Dropdown.Item>
-                                <Dropdown.Item onClick={() => handleFilterSelect("fechado")}>Caixa de munição fechadas</Dropdown.Item>
-                            </DropdownButton>
-                        </div>
-                        <div className={styles.dateFilterContainer}>
-                            <DropdownButton id="date-filter-dropdown" title={`Data: ${dateFilter === "all" ? "Qualquer uma" : dateFilter}`} variant="secondary">
-                                <Dropdown.Item onClick={() => handleDateFilterSelect("all")}>Qualquer uma</Dropdown.Item>
-                                <Dropdown.Item onClick={() => handleDateFilterSelect("recentes")}>Mais recentes</Dropdown.Item>
-                                <Dropdown.Item onClick={() => handleDateFilterSelect("antigas")}>Mais antigas</Dropdown.Item>
-                            </DropdownButton>
+                        <div className={styles.filtros}>
+                            <div className={styles.filterContainer}>
+                                <DropdownButton id="filter-dropdown" title={`Conservação: ${filterType === "all" ? "Todas" : filterType}`} variant="secondary">
+                                    <Dropdown.Item onClick={() => handleFilterSelect("all")}>Qualquer um</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleFilterSelect("aberto")}>Caixa de munição abertas</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleFilterSelect("fechado")}>Caixa de munição fechadas</Dropdown.Item>
+                                </DropdownButton>
+                            </div>
+                            <div className={styles.dateFilterContainer}>
+                                <DropdownButton id="date-filter-dropdown" title={`Data: ${dateFilter === "all" ? "Qualquer uma" : dateFilter}`} variant="secondary">
+                                    <Dropdown.Item onClick={() => handleDateFilterSelect("all")}>Qualquer uma</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleDateFilterSelect("recentes")}>Mais recentes</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleDateFilterSelect("antigas")}>Mais antigas</Dropdown.Item>
+                                </DropdownButton>
+                            </div>
+                            <div className={styles.searchContainer}>
+                                <InputGroup>
+                                    <FormControl
+                                        type="text"
+                                        placeholder="Pesquisar por modelo..."
+                                        value={searchTerm}
+                                        onChange={handleSearchChange}
+                                    />
+                                    <Button variant="outline-secondary" onClick={() => setSearchTerm("")}>
+                                        Limpar
+                                    </Button>
+                                </InputGroup>
+                            </div>
                         </div>
                     </div>
                     {loading ? (

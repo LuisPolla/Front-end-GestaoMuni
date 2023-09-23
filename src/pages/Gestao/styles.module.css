@@ -67,3 +67,10 @@ tr {
   padding-top: 3vh;
   font-size: 20px;
 }
+
+.filtros{
+  display: flex;
+  padding-left: 15vh;
+  padding-top: 6.5vh;
+  gap: 1vh;
+}
