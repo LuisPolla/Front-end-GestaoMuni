@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { Header } from '../../components';
 import styles from './styles.module.css';
-import { Table, Spinner, Dropdown } from 'react-bootstrap';
+import { Table, Spinner, Dropdown, Pagination } from 'react-bootstrap';
 import { HistoricoContext } from '../../contexts/HistoricoContext';
 import { format } from 'date-fns';
 
 export function Historico() {
   const { getAllHistorico, historicoData, loading } = useContext(HistoricoContext);
   const [ascending, setAscending] = useState(true); // Estado para controlar a ordenação
+  const [currentPage, setCurrentPage] = useState(1);
+  const columnsPerPage = 5; // Número de colunas por página
 
   useEffect(() => {
     getAllHistorico();
@@ -32,6 +34,16 @@ export function Historico() {
     }
   });
 
+  // Função para calcular o índice inicial e final das colunas a serem exibidas na página atual
+  const startIndex = (currentPage - 1) * columnsPerPage;
+  const endIndex = startIndex + columnsPerPage;
+
+  // Array das colunas a serem exibidas na página atual
+  const columnsOnCurrentPage = sortedHistorico.slice(startIndex, endIndex);
+
+  // Total de páginas
+  const totalPages = Math.ceil(sortedHistorico.length / columnsPerPage);
+
   return (
     <div>
       <Header title="Arsenal de Munições" navbar={true} />
@@ -41,7 +53,7 @@ export function Historico() {
             <img src="/TituloGestao.svg" className={styles.icon} alt="Título" />
             <h1 className={styles.titulo}>Histórico de cadastros</h1>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="success" id="dropdown-basic" className={styles.ordernar}>
                 Ordenar
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -62,7 +74,7 @@ export function Historico() {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedHistorico.map((item) => (
+                  {columnsOnCurrentPage.map((item) => (
                     <tr key={item.id}>
                       <td>{item.userId}</td>
                       <td>{item.municaoId}</td>
@@ -71,6 +83,31 @@ export function Historico() {
                   ))}
                 </tbody>
               </Table>
+              <div className={styles.paginaBotao}>
+                <Pagination>
+                  <Pagination.First onClick={() => setCurrentPage(1)} />
+                  <Pagination.Prev
+                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  />
+                  {Array.from({ length: totalPages }).map((_, index) => (
+                    <Pagination.Item
+                      key={index + 1}
+                      active={index + 1 === currentPage}
+                      onClick={() => setCurrentPage(index + 1)}
+                    >
+                      {index + 1}
+                    </Pagination.Item>
+                  ))}
+                  <Pagination.Next
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                    }
+                  />
+                  <Pagination.Last
+                    onClick={() => setCurrentPage(totalPages)}
+                  />
+                </Pagination>
+              </div>
             </div>
           </div>
         </div>

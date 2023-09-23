@@ -1,0 +1,10 @@
+.titleInput {
+    font-size: 15px;
+    color: black
+}
+
+.input {
+    padding: 0.5rem;
+    font-size: 15px;
+    width: '100%';
+}
