@@ -183,7 +183,7 @@ export function Gestao() {
                     </div>
                     {loading ? (
                         <Spinner animation="border" role="status">
-                            <span className="visually-impaired">Loading...</span>
+                            <span className="visually-impaired"></span>
                         </Spinner>
                     ) : municoes && (
                         <>
