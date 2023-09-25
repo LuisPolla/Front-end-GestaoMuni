@@ -149,7 +149,7 @@ export function Gestao() {
                         <img src="/TituloGestao.svg" className={styles.icon} alt="Título" />
                         <h1 className={styles.titulo}>Gestão de Munição</h1>
                         <div className={styles.filtros}>
-                            <div className={styles.filterContainer}>
+                            {/* <div className={styles.filterContainer}>
                                 <DropdownButton id="filter-dropdown" title={`Conservação: ${filterType === "all" ? "Todas" : filterType}`} variant="secondary">
                                     <Dropdown.Item onClick={() => handleFilterSelect("all")}>Qualquer um</Dropdown.Item>
                                     <Dropdown.Item onClick={() => handleFilterSelect("ABERTA")}>Caixa de munição abertas</Dropdown.Item>
@@ -162,7 +162,7 @@ export function Gestao() {
                                     <Dropdown.Item onClick={() => handleDateFilterSelect("recentes")}>Mais recentes</Dropdown.Item>
                                     <Dropdown.Item onClick={() => handleDateFilterSelect("antigas")}>Mais antigas</Dropdown.Item>
                                 </DropdownButton>
-                            </div>
+                            </div> */}
                             <div className={styles.searchContainer}>
                                 <InputGroup>
                                     <FormControl
