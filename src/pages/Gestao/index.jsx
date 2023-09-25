@@ -33,7 +33,7 @@ export function Gestao() {
             if (dateFilter === "recentes") {
                 return includesTerm && new Date(municao.dataFabriacao) <= currentDate;
             } else if (dateFilter === "antigas") {
-                return includesTerm && new Date(municao.dataFabriacao) > currentDate; // Alterado de <= para >
+                return includesTerm && new Date(municao.dataFabriacao) > currentDate;
             } else {
                 return includesTerm;
             }
@@ -183,7 +183,7 @@ export function Gestao() {
                     </div>
                     {loading ? (
                         <Spinner animation="border" role="status">
-                            <span className="visually-hidden">Loading...</span>
+                            <span className="visually-impaired">Loading...</span>
                         </Spinner>
                     ) : municoes && (
                         <>
