@@ -105,6 +105,9 @@ button:hover {
   border-radius: 5%;
   margin-left: -55vh;
   margin-top: -51vh;
-  
+}
 
+.loadingSpinner{
+  margin-left: 90vh;
+  margin-top: 40vh;
 }

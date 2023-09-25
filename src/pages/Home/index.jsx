@@ -1,35 +1,40 @@
-import { React, useState, useEffect } from 'react';
-import { Header } from "../../components";
+import React, { useState, useEffect } from 'react';
+import { Header } from '../../components';
 import { useNavigate } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap'; // Importe o Spinner do React Bootstrap
 
 import styles from './styles.module.css';
 
 export function Home() {
   const [dataDasboard, setDataDashboard] = useState();
-  const [totalCalibres, setTotalCalibres] = useState(); // Novo estado para armazenar o total de calibres
+  const [totalCalibres, setTotalCalibres] = useState();
+  const [isLoading, setIsLoading] = useState(true); // Adicione um estado para controlar o loading
 
   async function buscarDashboard() {
-    const response = await fetch('http://localhost:8080/totalUsers', {
-      method: 'GET',
-      headers: {
-        "Content-Type": 'application/json',
-        "Authorization": "Bearer " + localStorage.getItem('accessToken'),
-      }
-    });
+    // Simule um atraso de 2 segundos para carregar os dados
+    setTimeout(async () => {
+      const response = await fetch('http://localhost:8080/totalUsers', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+        },
+      });
 
-    const data = await response.json();
-    setDataDashboard(data);
+      const data = await response.json();
+      setDataDashboard(data);
+      setIsLoading(false); 
+    },); 
   }
 
-  // Função para buscar o total de calibres diversificados
   async function buscarTotalCalibres() {
     try {
       const response = await fetch('http://localhost:8080/total-calibres', {
         method: 'GET',
         headers: {
-          "Content-Type": 'application/json',
-          "Authorization": "Bearer " + localStorage.getItem('accessToken'),
-        }
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+        },
       });
 
       const data = await response.json();
@@ -41,7 +46,7 @@ export function Home() {
 
   useEffect(() => {
     buscarDashboard();
-    buscarTotalCalibres(); // Chame a função para buscar o total de calibres ao montar o componente
+    buscarTotalCalibres();
   }, []);
 
   const navigate = useNavigate();
@@ -60,10 +65,7 @@ export function Home() {
 
   return (
     <div>
-      <Header
-        title="Arsenal de Munições"
-        navbar={true}
-      />
+      <Header title="Arsenal de Munições" navbar={true} />
       <div className={styles.homeContainer}>
         <div className="p-3">
           <div className={styles.fundoCentral}>
@@ -83,27 +85,35 @@ export function Home() {
                 <img src="/perfilIcon.svg" />
               </button>
             </div>
-            {dataDasboard && (
-              <div className={styles.containerDashboard}>
-                <p className={styles.retanguloDashboard1}>
-                  Total de Armareiros Registrados: 
-                  <div className={styles.retanguloDashboarvalor}>
-                  {dataDasboard.usuariosCadastrados}
-                  </div>
-                </p>
-                <p className={styles.retanguloDashboard2}>
-                  Total de Munições Cadastradas:
-                  <div className={styles.retanguloDashboarvalor}>
-                  {dataDasboard.municoesCadastradas}
-                  </div> 
-                </p>
-                <p className={styles.retanguloDashboard3}>
-                  Calibres Diversificados:
-                  <div className={styles.retanguloDashboarvalor}>
-                  {totalCalibres || 'Carregando...'}
-                  </div> 
-                </p>
+            {isLoading ? ( // Renderize o Spinner enquanto isLoading for true
+              <div className={styles.loadingSpinner}>
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
               </div>
+            ) : (
+              dataDasboard && (
+                <div className={styles.containerDashboard}>
+                  <p className={styles.retanguloDashboard1}>
+                    Total de Armareiros Registrados:
+                    <div className={styles.retanguloDashboarvalor}>
+                      {dataDasboard.usuariosCadastrados}
+                    </div>
+                  </p>
+                  <p className={styles.retanguloDashboard2}>
+                    Total de Munições Cadastradas:
+                    <div className={styles.retanguloDashboarvalor}>
+                      {dataDasboard.municoesCadastradas}
+                    </div>
+                  </p>
+                  <p className={styles.retanguloDashboard3}>
+                    Calibres Diversificados:
+                    <div className={styles.retanguloDashboarvalor}>
+                      {totalCalibres || 'Carregando...'}
+                    </div>
+                  </p>
+                </div>
+              )
             )}
           </div>
         </div>
