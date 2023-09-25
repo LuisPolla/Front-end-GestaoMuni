@@ -116,20 +116,17 @@ export function Gestao() {
         }
     };
 
-    // Função para lidar com a alteração no campo de pesquisa
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
         setCurrentPage(1);
     };
 
-    // Função para lidar com a seleção de filtro
     const handleFilterSelect = (filter) => {
         setFilterType(filter);
         setCurrentPage(1);
         getAllMunicao();
     };
 
-    // Função para lidar com a seleção de filtro de data
     const handleDateFilterSelect = (filter) => {
         setDateFilter(filter);
         setCurrentPage(1);
@@ -155,8 +152,8 @@ export function Gestao() {
                             <div className={styles.filterContainer}>
                                 <DropdownButton id="filter-dropdown" title={`Conservação: ${filterType === "all" ? "Todas" : filterType}`} variant="secondary">
                                     <Dropdown.Item onClick={() => handleFilterSelect("all")}>Qualquer um</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => handleFilterSelect("aberto")}>Caixa de munição abertas</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => handleFilterSelect("fechado")}>Caixa de munição fechadas</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleFilterSelect("ABERTA")}>Caixa de munição abertas</Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleFilterSelect("FECHADA")}>Caixa de munição fechadas</Dropdown.Item>
                                 </DropdownButton>
                             </div>
                             <div className={styles.dateFilterContainer}>

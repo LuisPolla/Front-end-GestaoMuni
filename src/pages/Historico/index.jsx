@@ -68,7 +68,7 @@ export function Historico() {
               <Table striped hover>
                 <thead>
                   <tr>
-                    <th>Id do Usuario</th>
+                    <th>Id do Armeiro</th>
                     <th>Id da Munição</th>
                     <th>Data de Cadastro</th>
                   </tr>
