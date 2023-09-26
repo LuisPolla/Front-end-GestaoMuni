@@ -6,6 +6,7 @@ import { MunicaoContext } from "../../contexts/MunicaoContext";
 import { useForm } from "react-hook-form";
 import EditMunicaoModal from '../../components/editar municao/index';
 import CreateMunicaoModal from '../../components/criar municao/index';
+import MunicaoDetailsModal from "../../components/ver mais/MunicaoDetailsModal";
 
 export function Gestao() {
     const { getAllMunicao, loading, municoes, createMunicao, updateMunicao, deleteMunicao, setMunicoes } = useContext(MunicaoContext);
@@ -16,8 +17,8 @@ export function Gestao() {
     const [searchTerm, setSearchTerm] = useState("");
     const [filterType, setFilterType] = useState("all");
     const [dateFilter, setDateFilter] = useState("all");
-
     const [currentPage, setCurrentPage] = useState(1);
+    const [isViewModalOpen, setIsViewModalOpen] = useState(false);
     const columnsPerPage = 5;
 
     const startIndex = (currentPage - 1) * columnsPerPage;
@@ -53,7 +54,7 @@ export function Gestao() {
 
     const handleDetailsClick = (municao) => {
         setSelectedMunicao(municao);
-        setIsEditModalOpen(true);
+        setIsEditModalOpen(false);
     };
 
     async function addMunicao(data) {
@@ -143,6 +144,10 @@ export function Gestao() {
     return (
         <div>
             <Header title="Arsenal de Munições" navbar={true} />
+
+            
+               <MunicaoDetailsModal isViewModalOpen={isViewModalOpen} municao={selectedMunicao} setIsViewModalOpen={setIsViewModalOpen}/>
+            
             <div className={styles.homeContainer}>
                 <div className={styles.fundoCentral}>
                     <div className='flex'>
@@ -206,7 +211,7 @@ export function Gestao() {
                                                         <td>{item.estadoConservacao}</td>
                                                         <td>
                                                             <DropdownButton id={`dropdown-${item.id}`} title="Opções">
-                                                                <Dropdown.Item onClick={() => handleDetailsClick(item)}>Ver mais</Dropdown.Item>
+                                                                <Dropdown.Item onClick={() => {handleDetailsClick(item); setIsViewModalOpen(true)}}>Ver mais</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => handleEditClick(item.id)}>Editar Munição</Dropdown.Item>
                                                                 <Dropdown.Item onClick={() => handleDeleteMunicao(item.id)}>Apagar Munição</Dropdown.Item>
                                                             </DropdownButton>

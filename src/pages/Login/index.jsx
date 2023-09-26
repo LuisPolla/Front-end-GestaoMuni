@@ -60,10 +60,7 @@ export function Login() {
                                         className="form-control dark-input"
                                         required
                                         {...register2('email', {
-                                            required: {
-                                                value: true,
-                                                message: 'E-mail obrigatório'
-                                            },
+                                            required: 'E-mail obrigatório', // Mensagem de erro personalizada
                                             pattern: {
                                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                                 message: 'E-mail inválido'
@@ -82,10 +79,7 @@ export function Login() {
                                         required
                                         className="form-control dark-input"
                                         {...register2('password', {
-                                            required: {
-                                                value: true,
-                                                message: 'Senha obrigatória'
-                                            }
+                                            required: 'Senha obrigatória', // Mensagem de erro personalizada
                                         })}
                                     />
                                     {errors2.password && <span style={{ color: 'red' }}>{errors2.password.message}</span>}
@@ -120,10 +114,7 @@ export function Login() {
                                         required
                                         className="form-control dark-input"
                                         {...register('name', {
-                                            required: {
-                                                value: true,
-                                                message: 'Nome obrigatório'
-                                            },
+                                            required: 'Nome obrigatório', // Mensagem de erro personalizada
                                         })}
                                     />
                                     {errors.name && <span style={{ color: 'red' }}>{errors.name.message}</span>}
@@ -138,10 +129,7 @@ export function Login() {
                                         className="form-control dark-input"
                                         required
                                         {...register('registro', {
-                                            required: {
-                                                value: true,
-                                                message: 'Registro Militar obrigatório'
-                                            },
+                                            required: 'Registro Militar obrigatório', // Mensagem de erro personalizada
                                         })}
                                     />
                                     {errors.registro && <span style={{ color: 'red' }}>{errors.registro.message}</span>}
@@ -156,10 +144,7 @@ export function Login() {
                                         className="form-control dark-input"
                                         required
                                         {...register('cpf', {
-                                            required: {
-                                                value: true,
-                                                message: 'CPF obrigatório'
-                                            },
+                                            required: 'CPF obrigatório', // Mensagem de erro personalizada
                                             pattern: {
                                                 value: /^((\d{3}).(\d{3}).(\d{3})-(\d{2}))*$/,
                                                 message: 'CPF inválido'
@@ -177,10 +162,7 @@ export function Login() {
                                         className="form-control dark-input"
                                         required
                                         {...register('nascimento', {
-                                            required: {
-                                                value: true,
-                                                message: 'Data de Nascimento obrigatório'
-                                            },
+                                            required: 'Data de Nascimento obrigatória', // Mensagem de erro personalizada
                                         })}
                                     />
                                     {errors.nascimento && <span style={{ color: 'red' }}>{errors.nascimento.message}</span>}
@@ -194,10 +176,7 @@ export function Login() {
                                         placeholder="email@gmail.com"
                                         className="form-control dark-input"
                                         {...register('email', {
-                                            required: {
-                                                value: true,
-                                                message: 'E-mail obrigatório'
-                                            },
+                                            required: 'E-mail obrigatório', // Mensagem de erro personalizada
                                             pattern: {
                                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                                 message: 'E-mail inválido'
@@ -215,13 +194,10 @@ export function Login() {
                                         placeholder="Senha"
                                         className="form-control dark-input"
                                         {...register('password', {
-                                            required: {
-                                                value: true,
-                                                message: 'Senha obrigatória'
-                                            },
+                                            required: 'Senha obrigatória', // Mensagem de erro personalizada
                                             minLength: {
                                                 value: 6,
-                                                message: 'A senha deve ser no mínimo 6 caracteres'
+                                                message: 'A senha deve ter no mínimo 6 caracteres'
                                             }
                                         })}
                                     />
