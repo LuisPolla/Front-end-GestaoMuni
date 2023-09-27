@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from 'react-hook-form';
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 export function Login() {
@@ -25,10 +25,10 @@ export function Login() {
     };
 
     const handleRegister = async (data) => {
-        // if (!captchaValue) {
-        //     setError("Por favor, resolva o CAPTCHA para continuar.");
-        //     return;
-        // }
+        if (!captchaValue) {
+            setError("Por favor, resolva o CAPTCHA para continuar.");
+            return;
+        }
         await registerUser({
             nome: data.name,
             cpf: data.cpf,
@@ -209,13 +209,13 @@ export function Login() {
                                     />
                                     {errors.password && <span style={{ color: 'red' }}>{errors.password.message}</span>}
                                 </div>
-                                {/* <ReCAPTCHA
-                                    sitekey="6LfSplsoAAAAAMSVFD8kJzFd-8BXzrUtIuYztHQ1"
+                                <ReCAPTCHA
+                                    sitekey="6LfxtVsoAAAAAOmffQmGdWDQvtanDs6bbMptu8wJ"
                                     onChange={(value) => {
                                         // O valor é enviado automaticamente quando o CAPTCHA é resolvido
                                         console.log("Valor do CAPTCHA:", value);
                                     }}
-                                /> */}
+                                />
 
                                 <Button
                                     variant="success"
