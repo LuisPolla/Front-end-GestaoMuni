@@ -5,6 +5,8 @@ import styles from './styles.module.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from 'react-hook-form';
+// import ReCAPTCHA from "react-google-recaptcha";
+
 
 export function Login() {
     const navigate = useNavigate();
@@ -23,6 +25,10 @@ export function Login() {
     };
 
     const handleRegister = async (data) => {
+        // if (!captchaValue) {
+        //     setError("Por favor, resolva o CAPTCHA para continuar.");
+        //     return;
+        // }
         await registerUser({
             nome: data.name,
             cpf: data.cpf,
@@ -54,7 +60,7 @@ export function Login() {
                                     <div className={styles.titleInput}>insira seu E-mail</div>
                                     <input
                                         type="email"
-                                        id="email"
+                                        id="emaillogin"
                                         name="email"
                                         placeholder="Seu email"
                                         className="form-control dark-input"
@@ -67,13 +73,13 @@ export function Login() {
                                             }
                                         })}
                                     />
-                                    {errors2.email && <span style={{ color: 'red' }}>{errors2.email.message}</span>}
+                                    {errors2.emaillogin && <span style={{ color: 'red' }}>{errors2.emaillogin.message}</span>}
                                 </div>
                                 <div className={styles.inputs}>
                                     <div className={styles.titleInput}>insira sua Senha</div>
                                     <input
                                         type="password"
-                                        id="password"
+                                        id="passwordlogin"
                                         name="password"
                                         placeholder="Sua senha"
                                         required
@@ -82,7 +88,7 @@ export function Login() {
                                             required: 'Senha obrigatória', // Mensagem de erro personalizada
                                         })}
                                     />
-                                    {errors2.password && <span style={{ color: 'red' }}>{errors2.password.message}</span>}
+                                    {errors2.passwordlogin && <span style={{ color: 'red' }}>{errors2.passwordlogin.message}</span>}
                                 </div>
                                 <Button
                                     variant="primary"
@@ -203,6 +209,14 @@ export function Login() {
                                     />
                                     {errors.password && <span style={{ color: 'red' }}>{errors.password.message}</span>}
                                 </div>
+                                {/* <ReCAPTCHA
+                                    sitekey="6LfSplsoAAAAAMSVFD8kJzFd-8BXzrUtIuYztHQ1"
+                                    onChange={(value) => {
+                                        // O valor é enviado automaticamente quando o CAPTCHA é resolvido
+                                        console.log("Valor do CAPTCHA:", value);
+                                    }}
+                                /> */}
+
                                 <Button
                                     variant="success"
                                     className={styles.buttonRegister}
