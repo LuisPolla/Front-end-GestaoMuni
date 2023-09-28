@@ -74,3 +74,7 @@ tr {
   padding-top: 6.5vh;
   gap: 1vh;
 }
+
+.alerts{
+  font-size: 20px;
+}

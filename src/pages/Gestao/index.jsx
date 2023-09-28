@@ -206,6 +206,7 @@ export function Gestao() {
                         </Spinner>
                     ) : municoes && (
                         <>
+                                        <div className={styles.alerts}>
                                             {createdAlertVisible && (
                                                 <div className="alert alert-success" role="alert">
                                                     Munição criada com sucesso!
@@ -223,6 +224,7 @@ export function Gestao() {
                                                     Munição apagada com sucesso!
                                                 </div>
                                             )}
+                                        </div>
                             <div className={styles.container}>
                                 <div className={styles.Tabela}>
                                     <Table striped hover>
