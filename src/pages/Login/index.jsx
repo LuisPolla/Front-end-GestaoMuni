@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react'; // Importe useState
 import { Header } from "../../components";
 import { Tab, Tabs, Button, Spinner, Alert } from 'react-bootstrap';
 import styles from './styles.module.css';
@@ -7,12 +7,13 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useForm } from 'react-hook-form';
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 export function Login() {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { register: register2, handleSubmit: handleSubmit2, formState: { errors: errors2 } } = useForm();
     const { loading, registerUser, loginUser, error } = useContext(AuthContext);
+
+    const [captchaValue, setCaptchaValue] = useState(null); // Adicione o estado para o CAPTCHA
 
     const handleLogin = async (data) => {
         await loginUser({
@@ -26,6 +27,7 @@ export function Login() {
 
     const handleRegister = async (data) => {
         if (!captchaValue) {
+            // Mostre uma mensagem de erro ou faça algo apropriado
             setError("Por favor, resolva o CAPTCHA para continuar.");
             return;
         }
@@ -212,8 +214,8 @@ export function Login() {
                                 <ReCAPTCHA
                                     sitekey="6LfxtVsoAAAAAOmffQmGdWDQvtanDs6bbMptu8wJ"
                                     onChange={(value) => {
-                                        // O valor é enviado automaticamente quando o CAPTCHA é resolvido
-                                        console.log("Valor do CAPTCHA:", value);
+                                        // Armazene o valor do CAPTCHA no estado
+                                        setCaptchaValue(value);
                                     }}
                                 />
 
