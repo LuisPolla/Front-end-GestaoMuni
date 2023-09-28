@@ -62,7 +62,7 @@ export function Login() {
                                     <div className={styles.titleInput}>insira seu E-mail</div>
                                     <input
                                         type="email"
-                                        id="emaillogin"
+                                        id="email"
                                         name="email"
                                         placeholder="Seu email"
                                         className="form-control dark-input"
@@ -75,13 +75,13 @@ export function Login() {
                                             }
                                         })}
                                     />
-                                    {errors2.emaillogin && <span style={{ color: 'red' }}>{errors2.emaillogin.message}</span>}
+                                    {errors2.email && <span style={{ color: 'red' }}>{errors2.email.message}</span>}
                                 </div>
                                 <div className={styles.inputs}>
                                     <div className={styles.titleInput}>insira sua Senha</div>
                                     <input
                                         type="password"
-                                        id="passwordlogin"
+                                        id="password"
                                         name="password"
                                         placeholder="Sua senha"
                                         required
@@ -90,7 +90,7 @@ export function Login() {
                                             required: 'Senha obrigatória', // Mensagem de erro personalizada
                                         })}
                                     />
-                                    {errors2.passwordlogin && <span style={{ color: 'red' }}>{errors2.passwordlogin.message}</span>}
+                                    {errors2.password && <span style={{ color: 'red' }}>{errors2.password.message}</span>}
                                 </div>
                                 <Button
                                     variant="primary"

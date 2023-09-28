@@ -21,6 +21,10 @@ export function Gestao() {
     const [isViewModalOpen, setIsViewModalOpen] = useState(false);
     const columnsPerPage = 5;
 
+    const [createdAlertVisible, setCreatedAlertVisible] = useState(false);
+    const [editedAlertVisible, setEditedAlertVisible] = useState(false);
+    const [deletedAlertVisible, setDeletedAlertVisible] = useState(false);
+
     const startIndex = (currentPage - 1) * columnsPerPage;
     const endIndex = startIndex + columnsPerPage;
 
@@ -71,6 +75,8 @@ export function Gestao() {
         });
         await getAllMunicao();
         setIsCreateModalOpen(false);
+        setCreatedAlertVisible(true);
+        hideAlerts();
     }
 
     async function editMunicao(data) {
@@ -97,6 +103,8 @@ export function Gestao() {
             reset();
             setIsEditModalOpen(false);
             setMunicoes(updatedMunicoes);
+            setEditedAlertVisible(true);
+            hideAlerts();
         }
     }
 
@@ -111,6 +119,8 @@ export function Gestao() {
         try {
             if (window.confirm("Tem certeza de que deseja apagar esta munição?")) {
                 deleteMunicao(municaoId);
+                setDeletedAlertVisible(true);
+                hideAlerts();
             }
         } catch (error) {
             console.error(error, `Erro ao deletar a Munição`)
@@ -141,13 +151,20 @@ export function Gestao() {
         getMunicoes();
     }, []);
 
+    const hideAlerts = () => {
+        setTimeout(() => {
+            setCreatedAlertVisible(false);
+            setEditedAlertVisible(false);
+            setDeletedAlertVisible(false);
+        }, 3000); // Oculta os alertas após 3 segundos (pode ajustar o tempo conforme necessário)
+    };
+
     return (
         <div>
             <Header title="Arsenal de Munições" navbar={true} />
 
-            
-               <MunicaoDetailsModal isViewModalOpen={isViewModalOpen} municao={selectedMunicao} setIsViewModalOpen={setIsViewModalOpen}/>
-            
+            <MunicaoDetailsModal isViewModalOpen={isViewModalOpen} municao={selectedMunicao} setIsViewModalOpen={setIsViewModalOpen}/>
+
             <div className={styles.homeContainer}>
                 <div className={styles.fundoCentral}>
                     <div className='flex'>
@@ -189,6 +206,23 @@ export function Gestao() {
                         </Spinner>
                     ) : municoes && (
                         <>
+                                            {createdAlertVisible && (
+                                                <div className="alert alert-success" role="alert">
+                                                    Munição criada com sucesso!
+                                                </div>
+                                            )}
+                                            
+                                            {editedAlertVisible && (
+                                                <div className="alert alert-info" role="alert">
+                                                    Munição editada com sucesso!
+                                                </div>
+                                            )}
+                                            
+                                            {deletedAlertVisible && (
+                                                <div className="alert alert-danger" role="alert">
+                                                    Munição apagada com sucesso!
+                                                </div>
+                                            )}
                             <div className={styles.container}>
                                 <div className={styles.Tabela}>
                                     <Table striped hover>
@@ -236,9 +270,9 @@ export function Gestao() {
                                             <Pagination.Prev onClick={() => handlePageClick(Math.max(currentPage - 1, 1))} />
                                             {Array.from({ length: totalPages }).map((_, index) => (
                                                 <Pagination.Item
-                                                    key={index + 1}
-                                                    active={index + 1 === currentPage}
-                                                    onClick={() => handlePageClick(index + 1)}
+                                                key={index + 1}
+                                                active={index + 1 === currentPage}
+                                                onClick={() => handlePageClick(index + 1)}
                                                 >
                                                     {index + 1}
                                                 </Pagination.Item>
@@ -268,6 +302,7 @@ export function Gestao() {
                     municao={selectedMunicao}
                 />
             )}
+
         </div>
     );
 }
