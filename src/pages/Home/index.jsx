@@ -13,7 +13,7 @@ export function Home() {
   async function buscarDashboard() {
     // Simule um atraso de 2 segundos para carregar os dados
     setTimeout(async () => {
-      const response = await fetch('http://localhost:8080/totalUsers', {
+      const response = await fetch('https://api-gestaomuni.onrender.com/totalUsers', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export function Home() {
 
   async function buscarTotalCalibres() {
     try {
-      const response = await fetch('http://localhost:8080/total-calibres', {
+      const response = await fetch('https://api-gestaomuni.onrender.com/total-calibres', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
