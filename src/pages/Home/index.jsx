@@ -109,7 +109,7 @@ export function Home() {
                   <p className={styles.retanguloDashboard3}>
                     Calibres Diversificados:
                     <div className={styles.retanguloDashboarvalor}>
-                      {totalCalibres || 'Carregando...'}
+                      {totalCalibres}
                     </div>
                   </p>
                 </div>
