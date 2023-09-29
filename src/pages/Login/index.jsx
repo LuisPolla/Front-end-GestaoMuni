@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'; // Importe useState
+import { useContext, useEffect, useState } from 'react'; // Importe useState
 import { Header } from "../../components";
 import { Tab, Tabs, Button, Spinner, Alert } from 'react-bootstrap';
 import styles from './styles.module.css';
@@ -14,6 +14,11 @@ export function Login() {
     const { loading, registerUser, loginUser, error } = useContext(AuthContext);
 
     const [captchaValue, setCaptchaValue] = useState(null); // Adicione o estado para o CAPTCHA
+
+    useEffect(() => {
+        localStorage.clear()
+        sessionStorage.clear()
+    }, [])
 
     const handleLogin = async (data) => {
         await loginUser({
@@ -87,7 +92,7 @@ export function Login() {
                                         required
                                         className="form-control dark-input"
                                         {...register2('password', {
-                                            required: 'Senha obrigatória', // Mensagem de erro personalizada
+                                            required: 'Senha obrigatória',
                                         })}
                                     />
                                     {errors2.password && <span style={{ color: 'red' }}>{errors2.password.message}</span>}
